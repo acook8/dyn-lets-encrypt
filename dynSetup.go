@@ -107,6 +107,9 @@ func main() {
     recordValue := os.Args[3]
     runType := os.Args[4]
 
+    // Certify the Web passes *.example.com, but we need the zone
+    targetDomain = targetDomain[2:]
+
     if runType == "setup" {
         //make sure there are no existing _acme-challege records
         deleteTxt(token, targetDomain, recordName)
